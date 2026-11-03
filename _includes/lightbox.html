@@ -1,0 +1,40 @@
+<!-- Lightbox: click an image in a post to see it large. ← → to browse, Esc / click to close. -->
+<dialog class="lightbox" aria-label="Image viewer">
+  <img alt="">
+  <p class="lb-caption"></p>
+  <span class="lb-count"></span>
+</dialog>
+<script>
+(function () {
+  var imgs = Array.prototype.slice.call(document.querySelectorAll('.prose img, .cover'));
+  var box = document.querySelector('.lightbox');
+  if (!imgs.length || !box || !box.showModal) return;
+  var big = box.querySelector('img');
+  var cap = box.querySelector('.lb-caption');
+  var count = box.querySelector('.lb-count');
+  var i = 0;
+
+  function caption(alt) {
+    // strip the size keyword ("small:", "wide:" …) from the alt text
+    return (alt || '').replace(/^\s*(small|medium|large|wide)\s*:?\s*/i, '');
+  }
+  function show(n) {
+    i = (n + imgs.length) % imgs.length;
+    big.src = imgs[i].currentSrc || imgs[i].src;
+    big.alt = caption(imgs[i].alt);
+    cap.textContent = big.alt;
+    count.textContent = imgs.length > 1 ? (i + 1) + ' / ' + imgs.length : '';
+  }
+
+  imgs.forEach(function (img, n) {
+    img.classList.add('zoomable');
+    img.addEventListener('click', function () { show(n); box.showModal(); });
+  });
+  box.addEventListener('click', function () { box.close(); });
+  document.addEventListener('keydown', function (e) {
+    if (!box.open) return;
+    if (e.key === 'ArrowRight') show(i + 1);
+    if (e.key === 'ArrowLeft') show(i - 1);
+  });
+})();
+</script>
