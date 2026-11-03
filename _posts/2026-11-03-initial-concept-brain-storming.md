@@ -29,3 +29,7 @@ published: true
 
 ![](</assets/img/Capture d’écran 2026-11-03 à 14.29.26.png>)
 
+![](</assets/img/Capture d’écran 2026-11-03 à 14.35.35.png>)
+
+![](</assets/img/Capture d’écran 2026-11-03 à 14.34.41.png>)
+
