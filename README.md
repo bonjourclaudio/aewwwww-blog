@@ -48,8 +48,8 @@ Untick **Published** to save a draft. To edit or delete a post, open it from the
 | alt text starts with | size |
 |---|---|
 | *(nothing)* | natural size, max. text width |
-| `small:` | ⅓ of the text column |
-| `medium:` | ⅔ of the text column |
+| `small:` | ⅓ of the text column. Up to 3 small images sit side by side, then wrap |
+| `medium:` | ⅔ of the text column. Fits next to one small image |
 | `large:` | full text column |
 | `wide:` | wider than the text, to the right page edge |
 
