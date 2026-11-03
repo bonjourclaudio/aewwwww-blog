@@ -1,14 +1,14 @@
 # ─────────────────────────────────────────────
 #  Site settings — edit these once, then forget
 # ─────────────────────────────────────────────
-title: "Class Blog"
+title: "Embodied Interaction - Group 2"
 description: "Process notes, research and work-in-progress from four students."
 course: "BA Interaction Design · ZHdK"   # shown in the header + footer
 lang: en
 
 # If the repo is called e.g. "class-blog", keep this as "/class-blog".
 # If the repo is called "<username>.github.io", set it to "".
-baseurl: "/class-blog"
+baseurl: "/aewwwww-blog"
 url: ""   # e.g. "https://yourname.github.io" (optional, for absolute links)
 
 # ─────────────────────────────────────────────

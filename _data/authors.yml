@@ -3,20 +3,20 @@
 
 claudio:
   name: "Claudio"
-  bio: "Spatial interaction, critical design, things that blink."
-  link: ""          # optional: portfolio / website URL
+  bio: "Short one-line bio."
+  link: ""          
 
 person2:
-  name: "Person Two"
+  name: "Dome"
   bio: "Short one-line bio."
   link: ""
 
 person3:
-  name: "Person Three"
+  name: "Timon"
   bio: "Short one-line bio."
   link: ""
 
 person4:
-  name: "Person Four"
+  name: "Matthieu
   bio: "Short one-line bio."
   link: ""
