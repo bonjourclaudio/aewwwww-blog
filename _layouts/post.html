@@ -12,10 +12,6 @@ layout: default
     <dl>
       <dt>Date</dt>
       <dd><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%d.%m.%Y' }}</time></dd>
-      {% if a %}
-        <dt>Author</dt>
-        <dd>{{ a.name }}</dd>
-      {% endif %}
       {% if page.tags.size > 0 %}
         <dt>Tags</dt>
         <dd>{{ page.tags | join: ', ' }}</dd>
