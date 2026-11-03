@@ -211,8 +211,6 @@ h1, h2, h3 { font-weight: 500; margin: 0; }
   grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
   column-gap: var(--gutter);
   margin-top: 6rem;
-  padding-top: 1.25rem;
-  border-top: 2px solid var(--line);
 }
 .pn-prev { grid-column: 4 / 8; }
 .pn-next { grid-column: 9 / 13; }
