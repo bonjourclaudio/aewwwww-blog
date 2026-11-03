@@ -31,7 +31,7 @@ content:
         required: true
         options:
           # must match the keys in _data/authors.yml
-          values: [claudio, person2, person3, person4]
+          values: [claudio, timon, dome, matthieu]
       - name: date
         label: Date
         type: date
