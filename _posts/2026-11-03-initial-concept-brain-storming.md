@@ -21,6 +21,8 @@ published: true
   - eye gnats
   - certain flies
 
+- blog post nice haha
+
 ![small: scavenger reign robot](</assets/img/Capture d’écran 2026-11-03 à 14.24.53.png>)
 
 ![small: lachryphagy - moth feeding on tears](/assets/img/tumblr_ohq8qfDxV71tc258so7_r2_500-1941191645.png)
