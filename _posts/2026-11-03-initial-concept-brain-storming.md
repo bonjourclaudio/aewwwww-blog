@@ -23,13 +23,13 @@ published: true
 
 ![small: scavenger reign robot](</assets/img/Capture d’écran 2026-11-03 à 14.24.53.png>)
 
-![](/assets/img/tumblr_ohq8qfDxV71tc258so7_r2_500-1941191645.png)
+![small: lachryphagy - moth feeding on tears](/assets/img/tumblr_ohq8qfDxV71tc258so7_r2_500-1941191645.png)
 
-![](</assets/img/Capture d’écran 2026-11-03 à 14.31.33.png>)
+![small: blood type - maybe easier to read than DNA](</assets/img/Capture d’écran 2026-11-03 à 14.31.33.png>)
 
-![](</assets/img/Capture d’écran 2026-11-03 à 14.29.26.png>)
+![small: petri dish as a canvas](</assets/img/Capture d’écran 2026-11-03 à 14.29.26.png>)
 
-![](</assets/img/Capture d’écran 2026-11-03 à 14.35.35.png>)
+![small: tears - the last step for big tech to monitize?](</assets/img/Capture d’écran 2026-11-03 à 14.35.35.png>)
 
-![](</assets/img/Capture d’écran 2026-11-03 à 14.34.41.png>)
+![small: DNA - the missing puzzle](</assets/img/Capture d’écran 2026-11-03 à 14.34.41.png>)
 
