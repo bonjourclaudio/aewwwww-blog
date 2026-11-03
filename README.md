@@ -42,6 +42,22 @@ No Markdown needed. Uses [Pages CMS](https://pagescms.org), a free editor that w
 5. **Save**. The post is live about a minute later.
 
 Untick **Published** to save a draft. To edit or delete a post, open it from the list.
+
+**Image size:** click an image in the editor → alt-text field → start it with a size word:
+
+| alt text starts with | size |
+|---|---|
+| *(nothing)* | natural size, max. text width |
+| `small:` | ⅓ of the text column |
+| `medium:` | ⅔ of the text column |
+| `large:` | full text column |
+| `wide:` | wider than the text, to the right page edge |
+
+e.g. `wide: robot arm collecting tears, sketch`
+
+**Headings:** a heading applies to the whole paragraph. Press **Enter** to start a new
+line *before* turning it into a heading. Lines pasted in or separated with Shift+Enter
+count as one paragraph, so the whole block becomes a heading.
 There's also a "Write a post ↗" link in the site footer.
 
 **Adding/renaming people:** update `_data/authors.yml` *and* the `values:` list under
