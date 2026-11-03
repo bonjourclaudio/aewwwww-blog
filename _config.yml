@@ -10,6 +10,7 @@ lang: en
 # If the repo is called "<username>.github.io", set it to "".
 baseurl: "/aewwwww-blog"
 url: ""   # e.g. "https://yourname.github.io" (optional, for absolute links)
+cms_url: "https://app.pagescms.org/bonjourclaudio/aewwwww-blog/main/collection/posts"
 
 # ─────────────────────────────────────────────
 #  You shouldn't need to touch anything below
