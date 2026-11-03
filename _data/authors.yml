@@ -1,22 +1,19 @@
-# One entry per person. The key (e.g. "claudio") is what you write
-# as `author:` at the top of a post. Add/remove people here only.
-
 claudio:
   name: "Claudio"
-  bio: "Short one-line bio."
-  link: ""          
+  bio: ""
+  link: ""
 
 person2:
-  name: "Dome"
-  bio: "Short one-line bio."
+  name: "Person Two"
+  bio: ""
   link: ""
 
 person3:
-  name: "Timon"
-  bio: "Short one-line bio."
+  name: "Person Three"
+  bio: ""
   link: ""
 
 person4:
-  name: "Matthieu
-  bio: "Short one-line bio."
+  name: "Person Four"
+  bio: ""
   link: ""
