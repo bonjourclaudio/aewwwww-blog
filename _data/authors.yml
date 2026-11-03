@@ -1,0 +1,22 @@
+# One entry per person. The key (e.g. "claudio") is what you write
+# as `author:` at the top of a post. Add/remove people here only.
+
+claudio:
+  name: "Claudio"
+  bio: "Spatial interaction, critical design, things that blink."
+  link: ""          # optional: portfolio / website URL
+
+person2:
+  name: "Person Two"
+  bio: "Short one-line bio."
+  link: ""
+
+person3:
+  name: "Person Three"
+  bio: "Short one-line bio."
+  link: ""
+
+person4:
+  name: "Person Four"
+  bio: "Short one-line bio."
+  link: ""

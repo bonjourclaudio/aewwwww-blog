@@ -1,0 +1,33 @@
+# ─────────────────────────────────────────────
+#  Site settings — edit these once, then forget
+# ─────────────────────────────────────────────
+title: "Class Blog"
+description: "Process notes, research and work-in-progress from four students."
+course: "BA Interaction Design · ZHdK"   # shown in the header + footer
+lang: en
+
+# If the repo is called e.g. "class-blog", keep this as "/class-blog".
+# If the repo is called "<username>.github.io", set it to "".
+baseurl: "/class-blog"
+url: ""   # e.g. "https://yourname.github.io" (optional, for absolute links)
+
+# ─────────────────────────────────────────────
+#  You shouldn't need to touch anything below
+# ─────────────────────────────────────────────
+permalink: /:year/:month/:day/:title/
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+timezone: Europe/Zurich
+
+defaults:
+  - scope: { path: "", type: "posts" }
+    values: { layout: "post" }
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - .bundle

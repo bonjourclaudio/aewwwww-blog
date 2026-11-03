@@ -1,0 +1,18 @@
+{% comment %}
+  Usage: {% include post-list.html posts=site.posts %}
+{% endcomment %}
+<ol class="post-list">
+  {% for post in include.posts %}
+    {% assign a = site.data.authors[post.author] %}
+    <li>
+      <a class="post-link" href="{{ post.url | relative_url }}">
+        <span class="pl-num">{{ forloop.rindex | prepend: '00' | slice: -2, 2 }}</span>
+        <span class="pl-date">{{ post.date | date: '%d.%m.%Y' }}</span>
+        <span class="pl-title">{{ post.title }}</span>
+        <span class="pl-author">{{ a.name | default: post.author }}</span>
+      </a>
+    </li>
+  {% else %}
+    <li class="empty">No posts yet.</li>
+  {% endfor %}
+</ol>

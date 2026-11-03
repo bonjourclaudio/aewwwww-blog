@@ -1,0 +1,54 @@
+# Config for Pages CMS (https://app.pagescms.org) — the visual editor.
+# Defines what the editor shows. You rarely need to touch this,
+# except to update the author list below when people change.
+
+media:
+  input: assets/img
+  output: /assets/img
+  categories: [image]
+
+content:
+  - name: posts
+    label: Posts
+    type: collection
+    path: _posts
+    filename: "{year}-{month}-{day}-{primary}.md"
+    view:
+      fields: [title, author, date]
+      primary: title
+      sort: [date, title]
+      default:
+        sort: date
+        order: desc
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: author
+        label: Author
+        type: select
+        required: true
+        options:
+          # must match the keys in _data/authors.yml
+          values: [claudio, person2, person3, person4]
+      - name: date
+        label: Date
+        type: date
+        required: true
+      - name: tags
+        label: Tags
+        type: string
+        list: true
+      - name: cover
+        label: Cover image (optional)
+        type: image
+      - name: published
+        label: Published (untick to keep as draft)
+        type: boolean
+        default: true
+      - name: body
+        label: Text
+        type: rich-text
+        options:
+          format: markdown
