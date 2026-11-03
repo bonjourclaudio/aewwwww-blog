@@ -2,7 +2,7 @@
 title: initial concept brain storming
 author: claudio
 date: 2026-11-03
-published: false
+published: true
 ---
 - gallium, temperature / seasons
 - sphere: close: zurich (apartment issues, etc.); even smaller: ZHdK?
