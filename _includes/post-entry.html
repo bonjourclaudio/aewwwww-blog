@@ -22,7 +22,8 @@
 
   <p class="post-footer">
     posted by <strong>{{ a.name | default: p.author }}</strong>
-    at <a class="permalink" href="{{ p.url | relative_url }}">{{ p.date | date: '%H:%M' }}</a>
+    {% assign t = p.date | date: '%H:%M' %}
+    {% if t != "00:00" %}at {{ t }} {% endif %}| <a class="permalink" href="{{ p.url | relative_url }}">permalink</a>
     {% if p.tags.size > 0 %} &middot; filed under: {{ p.tags | join: ', ' }}{% endif %}
   </p>
 </div>
