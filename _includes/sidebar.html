@@ -1,0 +1,37 @@
+<div id="sidebar">
+
+  <h2 class="sidebar-title">About</h2>
+  <p>{{ site.course }}</p>
+
+  <h2 class="sidebar-title">Contributors</h2>
+  <ul>
+    {% for p in site.data.authors %}
+      {% assign theirs = site.posts | where: "author", p[0] %}
+      <li>{{ p[1].name }} <span class="count">({{ theirs.size }})</span></li>
+    {% endfor %}
+  </ul>
+
+  <h2 class="sidebar-title">Recent Posts</h2>
+  <ul>
+    {% for post in site.posts limit: 8 %}
+      <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
+    {% else %}
+      <li>No posts yet.</li>
+    {% endfor %}
+  </ul>
+
+  <h2 class="sidebar-title">Archives</h2>
+  <ul>
+    {% assign months = site.posts | group_by_exp: "p", "p.date | date: '%Y-%m'" %}
+    {% for m in months %}
+      <li><a href="{{ '/archive/' | relative_url }}#{{ m.name }}">{{ m.items.first.date | date: '%B %Y' }}</a> <span class="count">({{ m.size }})</span></li>
+    {% endfor %}
+  </ul>
+
+  <h2 class="sidebar-title">Links</h2>
+  <ul>
+    <li><a href="{{ site.cms_url }}" rel="nofollow">Write a post</a></li>
+    <li><a href="{{ '/feed.xml' | relative_url }}">Subscribe (Atom)</a></li>
+  </ul>
+
+</div>

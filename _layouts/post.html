@@ -1,42 +1,13 @@
 ---
 layout: default
 ---
-{% assign a = site.data.authors[page.author] %}
-{% comment %} Images from the editor are saved as "/assets/img/…"; add the baseurl so they work on GitHub Pages. {% endcomment %}
-{% assign img_from = '="/assets/' %}
-{% assign img_to = '="' | append: site.baseurl | append: '/assets/' %}
-{% assign img_from2 = '](/assets/' %}
-{% assign img_to2 = '](' | append: site.baseurl | append: '/assets/' %}
-<article class="post grid">
-  <aside class="post-meta">
-    <dl>
-      <dt>Date</dt>
-      <dd><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%d.%m.%Y' }}</time></dd>
-      {% if page.tags.size > 0 %}
-        <dt>Tags</dt>
-        <dd>{{ page.tags | join: ', ' }}</dd>
-      {% endif %}
-    </dl>
-  </aside>
+<h2 class="date-header">{{ page.date | date: '%A, %B %d, %Y' }}</h2>
 
-  <h1 class="post-title">{{ page.title }}</h1>
+{% include post-entry.html post=page body=content %}
 
-  {% if page.cover and page.cover != "" %}
-    <img class="cover" src="{% if page.cover contains '://' %}{{ page.cover }}{% else %}{{ page.cover | relative_url }}{% endif %}" alt="">
-  {% endif %}
-
-  <div class="prose">
-    {% if site.baseurl != "" %}
-      {{ content | replace: img_from, img_to | replace: img_from2, img_to2 }}
-    {% else %}
-      {{ content }}
-    {% endif %}
-  </div>
-
-  <nav class="post-nav">
-    <span class="pn-prev">{% if page.previous %}<span class="label">Previous</span><a href="{{ page.previous.url | relative_url }}">{{ page.previous.title }}</a>{% endif %}</span>
-    <span class="pn-next">{% if page.next %}<span class="label">Next</span><a href="{{ page.next.url | relative_url }}">{{ page.next.title }}</a>{% endif %}</span>
-  </nav>
-</article>
-
-{% include lightbox.html %}
+<p class="post-nav">
+  {% if page.previous %}<a href="{{ page.previous.url | relative_url }}">&laquo; {{ page.previous.title }}</a>{% endif %}
+  {% if page.previous and page.next %} | {% endif %}
+  <a href="{{ '/' | relative_url }}">Home</a>
+  {% if page.next %} | <a href="{{ page.next.url | relative_url }}">{{ page.next.title }} &raquo;</a>{% endif %}
+</p>

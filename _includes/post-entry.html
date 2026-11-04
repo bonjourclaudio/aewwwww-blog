@@ -1,0 +1,28 @@
+{% comment %}
+  One post, used on the front page and on the post page.
+  Usage: {% include post-entry.html post=post body=post.content link_title=true %}
+{% endcomment %}
+{% assign p = include.post %}
+{% assign a = site.data.authors[p.author] %}
+{% comment %} Images from the editor are saved as "/assets/img/…"; add the baseurl if the site lives in a sub-folder. {% endcomment %}
+{% assign img_from = '="/assets/' %}
+{% assign img_to = '="' | append: site.baseurl | append: '/assets/' %}
+<div class="post">
+  <h3 class="post-title">
+    {% if include.link_title %}<a href="{{ p.url | relative_url }}">{{ p.title }}</a>{% else %}{{ p.title }}{% endif %}
+  </h3>
+
+  {% if p.cover and p.cover != "" %}
+    <img class="cover" src="{% if p.cover contains '://' %}{{ p.cover }}{% else %}{{ p.cover | relative_url }}{% endif %}" alt="">
+  {% endif %}
+
+  <div class="post-body prose">
+    {% if site.baseurl != "" %}{{ include.body | replace: img_from, img_to }}{% else %}{{ include.body }}{% endif %}
+  </div>
+
+  <p class="post-footer">
+    posted by <strong>{{ a.name | default: p.author }}</strong>
+    at <a class="permalink" href="{{ p.url | relative_url }}">{{ p.date | date: '%H:%M' }}</a>
+    {% if p.tags.size > 0 %} &middot; filed under: {{ p.tags | join: ', ' }}{% endif %}
+  </p>
+</div>

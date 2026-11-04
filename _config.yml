@@ -6,10 +6,9 @@ description: "Materials, robots & thingssss"
 course: "BA Interaction Design · ZHdK"   # shown in the header + footer
 lang: en
 
-# If the repo is called e.g. "class-blog", keep this as "/class-blog".
-# If the repo is called "<username>.github.io", set it to "".
-baseurl: "/aewwwww-blog"
-url: ""   # e.g. "https://yourname.github.io" (optional, for absolute links)
+# Custom domain (see CNAME) -> site lives at the root, so baseurl stays empty.
+baseurl: ""
+url: "https://embodied-interaction.siech.space"
 cms_url: "https://app.pagescms.org/bonjourclaudio/aewwwww-blog/main/collection/posts"
 
 # ─────────────────────────────────────────────
