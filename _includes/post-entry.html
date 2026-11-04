@@ -3,14 +3,14 @@
   Usage: {% include post-entry.html post=post body=post.content link_title=true %}
 {% endcomment %}
 {% assign p = include.post %}
-{% assign a = site.data.authors[p.author] %}
 {% comment %} Images from the editor are saved as "/assets/img/…"; add the baseurl if the site lives in a sub-folder. {% endcomment %}
 {% assign img_from = '="/assets/' %}
 {% assign img_to = '="' | append: site.baseurl | append: '/assets/' %}
-<div class="post">
-  <h3 class="post-title">
+<article class="post">
+  <p class="post-date">{{ p.date | date: '%A, %d %B %Y' }}</p>
+  <h2 class="post-title">
     {% if include.link_title %}<a href="{{ p.url | relative_url }}">{{ p.title }}</a>{% else %}{{ p.title }}{% endif %}
-  </h3>
+  </h2>
 
   {% if p.cover and p.cover != "" %}
     <img class="cover" src="{% if p.cover contains '://' %}{{ p.cover }}{% else %}{{ p.cover | relative_url }}{% endif %}" alt="">
@@ -20,10 +20,7 @@
     {% if site.baseurl != "" %}{{ include.body | replace: img_from, img_to }}{% else %}{{ include.body }}{% endif %}
   </div>
 
-  <p class="post-footer">
-    posted by <strong>{{ a.name | default: p.author }}</strong>
-    {% assign t = p.date | date: '%H:%M' %}
-    {% if t != "00:00" %}at {{ t }} {% endif %}| <a class="permalink" href="{{ p.url | relative_url }}">permalink</a>
-    {% if p.tags.size > 0 %} &middot; filed under: {{ p.tags | join: ', ' }}{% endif %}
-  </p>
-</div>
+  {% if p.tags.size > 0 %}
+    <p class="post-footer">Tags: {{ p.tags | join: ', ' }}</p>
+  {% endif %}
+</article>

@@ -9,22 +9,24 @@
   <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="{{ '/feed.xml' | relative_url }}">
 </head>
 <body>
-<div id="outer">
+<div id="page">
 
-  <div id="header">
+  <header id="header">
     <h1 id="blog-title"><a href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
     <p id="blog-description">{{ site.description }}</p>
-  </div>
+  </header>
 
-  <div id="main">
+  <main id="main">
     {{ content }}
-  </div>
+  </main>
 
-  {% include sidebar.html %}
-
-  <div id="footer">
-    <p>{{ site.course }} &middot; {{ 'now' | date: '%Y' }}</p>
-  </div>
+  <footer id="footer">
+    <p>
+      {{ site.course }} &middot; {{ 'now' | date: '%Y' }}<br>
+      <a href="{{ site.cms_url }}" rel="nofollow">Write a post</a> &middot;
+      <a href="{{ '/feed.xml' | relative_url }}">Atom feed</a>
+    </p>
+  </footer>
 
 </div>
 

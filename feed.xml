@@ -14,7 +14,7 @@ layout: null
     <link href="{{ post.url | absolute_url }}"/>
     <updated>{{ post.date | date_to_xmlschema }}</updated>
     <id>{{ post.url | absolute_url }}</id>
-    <author><name>{{ site.data.authors[post.author].name | default: post.author | xml_escape }}</name></author>
+    <author><name>{{ site.title | xml_escape }}</name></author>
     <content type="html">{{ post.content | xml_escape }}</content>
   </entry>
   {% endfor %}

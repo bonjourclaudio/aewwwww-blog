@@ -1,19 +1,8 @@
 ---
 layout: default
 ---
-{% assign shown = 10 %}
-{% assign last_day = "" %}
-{% for post in site.posts limit: shown %}
-  {% assign day = post.date | date: '%Y-%m-%d' %}
-  {% if day != last_day %}
-    <h2 class="date-header">{{ post.date | date: '%A, %B %d, %Y' }}</h2>
-    {% assign last_day = day %}
-  {% endif %}
+{% for post in site.posts %}
   {% include post-entry.html post=post body=post.content link_title=true %}
 {% else %}
   <p>No posts yet.</p>
 {% endfor %}
-
-{% if site.posts.size > shown %}
-  <p class="post-nav"><a href="{{ '/archive/' | relative_url }}">Older posts &raquo;</a></p>
-{% endif %}
