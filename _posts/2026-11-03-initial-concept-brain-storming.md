@@ -1,6 +1,5 @@
 ---
 title: initial concept brain storming
-author: claudio
 date: 2026-11-03
 published: true
 ---
@@ -20,8 +19,6 @@ published: true
   - sweat beed
   - eye gnats
   - certain flies
-
-- blog post nice haha
 
 ![small: scavenger reign robot](</assets/img/Capture d’écran 2026-11-03 à 14.24.53.png>)
 
