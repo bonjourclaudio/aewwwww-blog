@@ -9,6 +9,10 @@ TBD
 
 
 
+![medium: cork - claudio](/assets/img/Screenshot-20261104-13:52:51.png)
+
+
+
 # coconut oil - timon
 
 tbd
