@@ -17,9 +17,17 @@ Cork is harvested from the "cork oak" - [Quercus suber](https://en.wikipedia.org
 
 # coconut oil - timon
 
-tbd
+![20261104_094521.jpg](/assets/img/20261104_094521.jpg)
 
+Coconut Oil
 
+description: white to yellowish vegetable fat smelling mild, waxy and fresh.  
+extraction: pressed from copra, the edible flesh of the coconut.  
+origin: main growing regions of coconut palms are in South-East Asia and South Asia.  
+main use: cooking (baking, frying, butter alt.), skin care (moisturizer, hair mask)  
+melting point: solid at 23°C molten at 26°C. soft and creamy at temps between  
+relations: coconut fat, pork fat, cacao butter, butter, beeswax  
+references: josef beuys, fettecke. sonja alhäuser, emsrausch
 
 # salt water - matthieu
 
