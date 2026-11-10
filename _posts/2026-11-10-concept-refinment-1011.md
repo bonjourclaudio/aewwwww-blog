@@ -1,6 +1,7 @@
 ---
 title: first experiments with 3D nozzle & carving tools
 date: 2026-11-10
+cover: /assets/img/Capture d’écran 2026-11-10 à 16.06.54.png
 published: true
 ---
 **Directions & Outcomes, after Input 10.11. Johannes**
@@ -10,6 +11,8 @@ published: true
 - Once completed, the drawn canvas acts as a temportal, archived artifact haning on the wall
 - During the exhibition, the canvas may melt, either manually triggered / by the audience, or through the data set, exceeding a certain threshold
 - 3D printer heating bed below the wax canvas
+- borders, infrastructure, gaz, pipline, ormutz, internet cable
+- environment : El Nino, river, forest, desert
 
 ## Experimenting with melting wax
 
@@ -18,4 +21,6 @@ published: true
 ![medium: experimenting with heat sensor](/assets/img/Screenshot-20261110-16:00:11.png)
 
 ![medium: melting bee wax with diy carving tool, temp. around 110°C](/assets/img/Screenshot-20261110-16:01:06.png)
+
+![small](</assets/img/Capture d’écran 2026-11-10 à 16.06.54.png>)
 
