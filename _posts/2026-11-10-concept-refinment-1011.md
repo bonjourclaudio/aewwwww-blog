@@ -11,8 +11,10 @@ published: true
 - Once completed, the drawn canvas acts as a temportal, archived artifact haning on the wall
 - During the exhibition, the canvas may melt, either manually triggered / by the audience, or through the data set, exceeding a certain threshold
 - 3D printer heating bed below the wax canvas
-- borders, infrastructure, gaz, pipline, ormutz, internet cable
+- **borders are always changing and part of the place we live** 
+- infrastructure : gaz, pipline, ormutz, internet cable (undersea?)
 - environment : El Nino, river, forest, desert
+- politics, how separate people are or connected
 
 ## Experimenting with melting wax
 
