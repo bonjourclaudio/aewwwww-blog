@@ -11,3 +11,9 @@ published: true
 - During the exhibition, the canvas may melt, either manually triggered / by the audience, or through the data set, exceeding a certain threshold
 - 3D printer heating bed below the wax canvas
 
+![medium: wax carving tool in 3D extruder head](/assets/img/Screenshot-20261110-15:58:11.png)
+
+![medium: experimenting with heat sensor](/assets/img/Screenshot-20261110-16:00:11.png)
+
+![medium: melting bee wax with diy carving tool, temp. around 110°C](/assets/img/Screenshot-20261110-16:01:06.png)
+
