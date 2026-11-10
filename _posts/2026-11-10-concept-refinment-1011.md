@@ -1,5 +1,5 @@
 ---
-title: concept refinment 10.11.
+title: first experiments with 3D nozzle & carving tools
 date: 2026-11-10
 published: true
 ---
@@ -10,6 +10,8 @@ published: true
 - Once completed, the drawn canvas acts as a temportal, archived artifact haning on the wall
 - During the exhibition, the canvas may melt, either manually triggered / by the audience, or through the data set, exceeding a certain threshold
 - 3D printer heating bed below the wax canvas
+
+## Experimenting with melting wax
 
 ![medium: wax carving tool in 3D extruder head](/assets/img/Screenshot-20261110-15:58:11.png)
 
