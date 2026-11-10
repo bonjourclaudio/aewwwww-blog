@@ -1,7 +1,7 @@
 ---
 title: first experiments with 3D nozzle & carving tools
 date: 2026-11-10
-published: true
+published: false
 ---
 **Directions & Outcomes, after Input 10.11. Johannes**
 
