@@ -1,6 +1,6 @@
 ---
 title: Sketches of Week 2
-date: 2026-11-10
+date: 2026-11-09
 published: true
 ---
 ![20261105_125844.jpg](/assets/img/20261105_125844.jpg)
