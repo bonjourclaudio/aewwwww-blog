@@ -26,3 +26,10 @@ published: true
 
 ![small](</assets/img/Capture d’écran 2026-11-10 à 16.06.54.png>)
 
+
+
+### GitHub Repo containing Arduino Sketches
+
+(so far, reading out the temperature sensor "PT100" of the extruder head) 
+
+[https://github.com/bonjourclaudio/wax-carver](https://github.com/bonjourclaudio/wax-carver)
