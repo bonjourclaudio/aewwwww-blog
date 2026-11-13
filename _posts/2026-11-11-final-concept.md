@@ -15,7 +15,6 @@ Once the person does the action X, the old record gets melted. The temporal aspe
 
 The cycle is divided into 4 steps that are linked to action X.  
 
-
 1.) Registered action X triggers the etching of the image into wax  
 2.) The resulting visualization is displayed  
 3.) The visualization is remelted, thus returned to it’s initial form  
@@ -49,7 +48,9 @@ By engraving into a wax map and allowing for a system where it could melt at any
 
 ## Prototyping
 
-![](/assets/img/alu_frames.png)
+![medium: aluminium wax frames - placed on top of the stove topes, as aluminium allows for great heat transfer](/assets/img/alu_frames.png)
 
-![](/assets/img/Screenshot-20261113-16:51:54.png)
+![small: stove used to heat the frames](</assets/img/01a0f703-8167-70d3-88a9-b50bab4a7c28_2880 1.png>)
+
+![small: experimenting with salt crystals as a medium in the same frame](/assets/img/Screenshot-20261113-16:51:54.png)
 
