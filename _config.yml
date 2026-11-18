@@ -9,6 +9,7 @@ lang: en
 # Custom domain (see CNAME) -> site lives at the root, so baseurl stays empty.
 baseurl: ""
 url: "https://embodied-interaction.siech.space"
+source_url: "https://github.com/bonjourclaudio/UR5-PCL-EmbodiedInteraction/tree/main"   # project source code, linked in the header
 cms_url: "https://app.pagescms.org/bonjourclaudio/aewwwww-blog/main/collection/posts"
 
 # ─────────────────────────────────────────────

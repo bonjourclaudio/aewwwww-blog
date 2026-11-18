@@ -44,7 +44,8 @@ permalink: /documentation/
     <p class="doc-facts">
       Documentation &middot; {{ posts.size }} posts<br>
       {% if posts.size > 0 %}{{ posts.first.date | date: '%d.%m.%Y' }} – {{ posts.last.date | date: '%d.%m.%Y' }}<br>{% endif %}
-      {{ site.url }}
+      {{ site.url }}{% if site.source_url %}<br>
+      Source code: {{ site.source_url }}{% endif %}
     </p>
     <p class="doc-generated">Generated {{ site.time | date: '%d.%m.%Y' }}</p>
   </section>
