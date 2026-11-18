@@ -1,0 +1,19 @@
+<!-- Captions: shows each image's alt text (without the "small:" / "medium:" … keyword) below the image.
+     Alt texts that are only a keyword or just a file name (e.g. "IMG_1234.jpg") get no caption. -->
+<script>
+(function () {
+  var imgs = document.querySelectorAll('.post-body img');
+  Array.prototype.forEach.call(imgs, function (img) {
+    var text = (img.getAttribute('alt') || '')
+      .replace(/^\s*(small|medium|large|wide)\s*:?\s*/i, '')
+      .trim();
+    if (!text || /\.(jpe?g|png|gif|webp|heic|avif|svg)$/i.test(text)) return;
+    var next = img.nextElementSibling;
+    if (next && next.tagName === 'EM') return;   // already has a hand-written caption
+    var cap = document.createElement('span');
+    cap.className = 'img-caption';
+    cap.textContent = text;
+    img.insertAdjacentElement('afterend', cap);
+  });
+})();
+</script>
