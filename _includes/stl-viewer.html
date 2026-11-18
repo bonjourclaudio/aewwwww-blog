@@ -3,12 +3,12 @@
        ![medium: wax tool holder](/assets/img/holder.stl)   (as an image)
        [medium: wax tool holder](/assets/img/holder.stl)    (as a link)
      The size keyword (small / medium / large / wide) and the caption work like for images.
-     three.js is loaded from /assets/vendor/three/ only on pages that contain a model. -->
+     three.js is loaded from /assets/lib/three/ only on pages that contain a model. -->
 <script type="module">
 const found = document.querySelectorAll('.post-body img[src$=".stl" i], .post-body a[href$=".stl" i]');
 if (found.length) {
   window.stlReady = (async () => {
-    const base = '{{ "/assets/vendor/three/" | relative_url }}';
+    const base = '{{ "/assets/lib/three/" | relative_url }}';
     const [THREE, { STLLoader }, { OrbitControls }] = await Promise.all([
       import(base + 'three.module.min.js'),
       import(base + 'STLLoader.js'),
