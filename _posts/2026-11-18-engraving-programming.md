@@ -96,7 +96,7 @@ This concludes our first physical engraving attempts. While there were some mist
 
 
 
-Next Steps:
+### Next Steps:
 
 - **Improve tool head:** Heatsink, distance between PLA and metal parts, etc.
 - **Implement buttons**: When button pressed, grab frame of webcam footage (script to scrape footage is already implemented)
