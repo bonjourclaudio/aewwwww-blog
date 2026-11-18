@@ -1,0 +1,128 @@
+<!-- 3D viewer: any .stl file in a post becomes an interactive, rotatable model.
+     Works both ways the editor can insert a file:
+       ![medium: wax tool holder](/assets/img/holder.stl)   (as an image)
+       [medium: wax tool holder](/assets/img/holder.stl)    (as a link)
+     The size keyword (small / medium / large / wide) and the caption work like for images.
+     three.js is loaded from /assets/vendor/three/ only on pages that contain a model. -->
+<script type="module">
+const found = document.querySelectorAll('.post-body img[src$=".stl" i], .post-body a[href$=".stl" i]');
+if (found.length) {
+  window.stlReady = (async () => {
+    const base = '{{ "/assets/vendor/three/" | relative_url }}';
+    const [THREE, { STLLoader }, { OrbitControls }] = await Promise.all([
+      import(base + 'three.module.min.js'),
+      import(base + 'STLLoader.js'),
+      import(base + 'OrbitControls.js'),
+    ]);
+    await Promise.all(Array.from(found, (el) => mount(el, THREE, STLLoader, OrbitControls)));
+  })().catch((e) => console.error('3D viewer:', e));
+}
+
+async function mount(el, THREE, STLLoader, OrbitControls) {
+  const url = el.tagName === 'IMG' ? el.src : el.href;
+  const label = (el.tagName === 'IMG' ? el.getAttribute('alt') : el.textContent) || '';
+  const m = label.match(/^\s*(small|medium|large|wide)\b\s*:?\s*/i);
+  const size = m ? m[1].toLowerCase() : 'large';
+  let caption = label.slice(m ? m[0].length : 0).trim();
+  if (/\.stl$/i.test(caption)) caption = '';   // just the file name -> no caption
+
+  // Markup: figure box with canvas, a print snapshot, a hint line and the caption
+  const fig = document.createElement('span');
+  fig.className = 'stl-figure stl-' + size;
+  fig.innerHTML =
+    '<span class="stl-box"><canvas></canvas><img class="stl-snapshot" alt="">' +
+    '<span class="stl-status">Loading 3D model…</span></span>' +
+    '<span class="stl-hint">Drag to rotate · right-drag to move · click, then scroll to zoom · ' +
+    '<a href="' + url + '" download>Download .stl</a></span>' +
+    (caption ? '<span class="img-caption"></span>' : '');
+  if (caption) fig.querySelector('.img-caption').textContent = caption;
+  el.replaceWith(fig);
+
+  const box = fig.querySelector('.stl-box');
+  const canvas = fig.querySelector('canvas');
+  const snap = fig.querySelector('.stl-snapshot');
+  const status = fig.querySelector('.stl-status');
+
+  let geometry;
+  try {
+    geometry = await new STLLoader().loadAsync(url);
+  } catch (e) {
+    status.textContent = 'Could not load the 3D model.';
+    return;
+  }
+  status.remove();
+
+  // Most CAD/slicer exports are Z-up; three.js is Y-up.
+  geometry.rotateX(-Math.PI / 2);
+  geometry.center();
+  geometry.computeVertexNormals();
+  geometry.computeBoundingSphere();
+  const r = geometry.boundingSphere.radius || 1;
+
+  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, preserveDrawingBuffer: true });
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  const scene = new THREE.Scene();
+  scene.background = new THREE.Color(0xf4f4f4);
+
+  const mesh = new THREE.Mesh(geometry, new THREE.MeshStandardMaterial({ color: 0xbdbdbd, roughness: 0.55, metalness: 0.05 }));
+  scene.add(mesh);
+  scene.add(new THREE.HemisphereLight(0xffffff, 0x8a8a8a, 2.2));
+  const key = new THREE.DirectionalLight(0xffffff, 2.2);
+  scene.add(key);
+
+  // Floor shadow-ish grid, just below the model
+  const box3 = new THREE.Box3().setFromObject(mesh);
+  const grid = new THREE.GridHelper(r * 4, 20, 0xcccccc, 0xe2e2e2);
+  grid.position.y = box3.min.y;
+  scene.add(grid);
+
+  const camera = new THREE.PerspectiveCamera(35, 4 / 3, r / 100, r * 100);
+  const controls = new OrbitControls(camera, canvas);
+  controls.enableDamping = true;
+  controls.autoRotate = true;
+  controls.autoRotateSpeed = 1.2;
+  controls.enableZoom = false;   // so scrolling the page isn't hijacked …
+
+  function home() {
+    const dist = r / Math.sin(THREE.MathUtils.degToRad(camera.fov / 2)) * 1.05;
+    camera.position.set(1, 0.75, 1).normalize().multiplyScalar(dist);
+    controls.target.set(0, 0, 0);
+    controls.update();
+  }
+  home();
+
+  // … zoom turns on after clicking into the viewer, and off again when the pointer leaves
+  canvas.addEventListener('pointerdown', () => { controls.enableZoom = true; controls.autoRotate = false; box.classList.add('active'); });
+  canvas.addEventListener('pointerleave', () => { controls.enableZoom = false; box.classList.remove('active'); });
+  canvas.addEventListener('dblclick', home);
+
+  function resize() {
+    const w = box.clientWidth, h = Math.round(w * 3 / 4);
+    renderer.setSize(w, h, false);
+    camera.aspect = w / h;
+    camera.updateProjectionMatrix();
+  }
+  new ResizeObserver(resize).observe(box);
+  resize();
+
+  function draw() {
+    key.position.copy(camera.position);   // light comes from the viewer
+    renderer.render(scene, camera);
+  }
+
+  // Only animate while visible on screen
+  let visible = false;
+  new IntersectionObserver(([e]) => { visible = e.isIntersecting; if (visible) loop(); }).observe(box);
+  function loop() {
+    if (!visible) return;
+    controls.update();
+    draw();
+    requestAnimationFrame(loop);
+  }
+
+  // Still image of the current view, used when printing / saving as PDF
+  function snapshot() { draw(); snap.src = canvas.toDataURL('image/png'); }
+  draw(); snapshot();
+  window.addEventListener('beforeprint', snapshot);
+}
+</script>

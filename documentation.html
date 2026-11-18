@@ -66,20 +66,20 @@ permalink: /documentation/
 </div>
 
 {% include captions.html %}
+{% include stl-viewer.html %}
 <script>
-// Opened via the export button (?print): wait until every image has loaded, then print.
-(function () {
+// Opened via the export button (?print): wait until every image and 3D model has loaded, then print.
+window.addEventListener('load', function () {
   if (!/[?&]print\b/.test(location.search)) return;
-  var imgs = Array.prototype.slice.call(document.images);
-  var waits = imgs.map(function (img) {
-    img.loading = 'eager';
+  var waits = Array.prototype.map.call(document.images, function (img) {
     if (img.complete) return Promise.resolve();
     return new Promise(function (done) { img.onload = img.onerror = done; });
   });
+  waits.push(window.stlReady || Promise.resolve());
   Promise.all(waits).then(function () {
     setTimeout(function () { window.print(); }, 300);
   });
-})();
+});
 </script>
 </body>
 </html>

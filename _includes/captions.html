@@ -2,7 +2,7 @@
      Alt texts that are only a keyword or just a file name (e.g. "IMG_1234.jpg") get no caption. -->
 <script>
 (function () {
-  var imgs = document.querySelectorAll('.post-body img');
+  var imgs = document.querySelectorAll('.post-body img:not([src$=".stl" i])');
   Array.prototype.forEach.call(imgs, function (img) {
     var text = (img.getAttribute('alt') || '')
       .replace(/^\s*(small|medium|large|wide)\s*:?\s*/i, '')

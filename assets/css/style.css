@@ -143,6 +143,8 @@ img { border: 0; max-width: 100%; height: auto; }
 .prose img { display: block; width: auto; max-width: 100%; margin: .5em 0; }
 .prose > p:has(> img[alt^="small" i])  { flex-basis: calc((100% - 2 * var(--gutter)) / 3); }
 .prose > p:has(> img[alt^="medium" i]) { flex-basis: calc((100% - 2 * var(--gutter)) / 3 * 2 + var(--gutter)); }
+.prose > p:has(> .stl-small)  { flex-basis: calc((100% - 2 * var(--gutter)) / 3); }
+.prose > p:has(> .stl-medium) { flex-basis: calc((100% - 2 * var(--gutter)) / 3 * 2 + var(--gutter)); }
 .prose img[alt^="small" i], .prose img[alt^="medium" i],
 .prose img[alt^="large" i], .prose img[alt^="wide" i] { width: 100%; }
 .prose .img-caption { display: block; margin: -.25em 0 .75em; font-size: 13px; line-height: 1.35; color: var(--muted); }
@@ -168,6 +170,17 @@ img { border: 0; max-width: 100%; height: auto; }
 .lightbox img { display: block; max-width: calc(100vw - 32px); max-height: calc(100vh - 80px); width: auto; height: auto; }
 .lightbox .lb-caption { margin: 8px 0 0; padding-right: 4em; color: var(--muted); }
 .lightbox .lb-count { position: absolute; right: 0; bottom: 0; color: var(--muted); }
+
+/* ---------- 3D viewer (.stl files in posts) ---------- */
+.stl-figure { display: block; width: 100%; }
+.stl-box { position: relative; display: block; width: 100%; aspect-ratio: 4 / 3; background: #f4f4f4; outline: 1px solid var(--hair); cursor: grab; }
+.stl-box.active { outline: 1px solid var(--link); }
+.stl-box:active { cursor: grabbing; }
+.stl-box canvas { display: block; width: 100%; height: 100%; touch-action: none; }
+.prose .stl-snapshot { display: none; }
+.stl-status { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 13px; color: var(--muted); }
+.stl-hint { display: block; margin: 4px 0 2px; font-size: 12px; color: var(--muted); }
+.stl-figure .img-caption { margin-top: 0; }
 
 /* ---------- documentation page (/documentation/) ---------- */
 .doc-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; margin: 0 0 32px; padding-bottom: 16px; border-bottom: 1px solid var(--line); font-size: 13px; }
@@ -203,6 +216,11 @@ img { border: 0; max-width: 100%; height: auto; }
   .post-body p:has(> img), .post-body img, .cover, .post-body table, .post-body pre, .post-end { break-inside: avoid; }
   .post-body img, .cover { max-height: 120mm; object-fit: contain; object-position: left top; }
   .post-body pre { white-space: pre-wrap; word-break: break-word; }
+  .stl-box canvas, .stl-hint { display: none !important; }
+  .stl-box { aspect-ratio: auto; outline: 0; }
+  .stl-status { display: none; }
+  .prose .stl-snapshot { display: block; width: 100%; height: auto; max-height: none; }
+  .stl-box, .stl-figure { break-inside: avoid; }
 }
 
 /* ---------- phones ---------- */
@@ -212,4 +230,6 @@ img { border: 0; max-width: 100%; height: auto; }
   .header-links { flex-direction: row; flex-wrap: wrap; align-items: flex-start; }
   .prose > p:has(> img[alt^="small" i])  { flex-basis: calc((100% - var(--gutter)) / 2); }
   .prose > p:has(> img[alt^="medium" i]) { flex-basis: 100%; }
+  .prose > p:has(> .stl-small)  { flex-basis: calc((100% - var(--gutter)) / 2); }
+  .prose > p:has(> .stl-medium) { flex-basis: 100%; }
 }

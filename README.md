@@ -82,6 +82,19 @@ Upload to `assets/img/` (**Add file → Upload files**), then in the post:
 ```
 Keep images small (JPG/WebP, ~2000 px wide, < 1 MB).
 
+### 3D models (.stl)
+Upload the `.stl` like an image (in Pages CMS: **Media → Upload**), then put it in the post
+on its own line, as an image or as a link. The size keyword and caption work like for images:
+
+```markdown
+![medium: wax tool holder, 2nd iteration](/assets/img/holder.stl)
+```
+In the visual editor: insert a link with the text `medium: wax tool holder` and the URL
+`/assets/img/holder.stl`. It appears as a rotatable 3D viewer (drag to rotate,
+right-drag to move, click then scroll to zoom, double-click to reset) with a download link.
+In the PDF export it's printed as a still image. Keep files under ~20 MB
+(export with a coarser resolution, or binary STL, if they're bigger).
+
 ### Video
 Paste YouTube/Vimeo embed `<iframe>` code straight into the post.
 
