@@ -98,5 +98,8 @@ This concludes our first physical engraving attempts. While there were some mist
 
 Next Steps:
 
-- 
+- **Improve tool head:** Heatsink, distance between PLA and metal parts, etc.
+- **Implement buttons**: When button pressed, grab frame of webcam footage (script to scrape footage is already implemented)
+- **Tune engraving** once toolhead is done: Depth, duration (how long to stay on one dot), speed, distance / gap between, etc.
+- **Produce more frames**: and fill with wax
 
