@@ -4,6 +4,7 @@
     link_title  title links to the post page + "Permalink / Top" links at the end (front page)
     num         optional running number, shown in the post's header band
     doc         true on the documentation page: shows the post's web address at the end
+    preview     true on the front page: only the first ~3 lines of text + "Read more"
 {% endcomment %}
 {% assign p = include.post %}
 {% comment %} Images from the editor are saved as "/assets/img/…"; add the baseurl if the site lives in a sub-folder. {% endcomment %}
@@ -19,6 +20,11 @@
       {% if include.link_title %}<a href="{{ p.url | relative_url }}">{{ p.title }}</a>{% else %}{{ p.title }}{% endif %}
     </h2>
   </header>
+
+  {% if include.preview %}
+  <p class="post-preview">{{ p.content | strip_html | normalize_whitespace | truncate: 600, '' }}</p>
+  <p class="read-more"><a href="{{ p.url | relative_url }}">Read more &rarr;</a></p>
+  {% else %}
 
   {% if p.cover and p.cover != "" %}
     <img class="cover" src="{% if p.cover contains '://' %}{{ p.cover }}{% else %}{{ p.cover | relative_url }}{% endif %}" alt="">
@@ -36,4 +42,5 @@
     {% endif %}
     {% if include.doc %}<span>{{ site.url }}{{ p.url | relative_url }}</span>{% endif %}
   </footer>
+  {% endif %}
 </article>

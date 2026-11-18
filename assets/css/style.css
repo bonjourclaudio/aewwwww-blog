@@ -93,6 +93,19 @@ img { border: 0; max-width: 100%; height: auto; }
 }
 .post-end-mark { color: var(--link); margin-right: auto; }
 
+/* Front page: 3-line preview, cut off with "…" */
+.post-preview {
+  margin: 0;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  overflow: hidden;
+}
+.read-more { margin: 8px 0 0; font-size: 14px; }
+.post:has(.post-preview) { margin-bottom: 56px; }
+.post:has(.post-preview) .post-head { margin-bottom: 12px; }
+
 .post-body p, .post-body ul, .post-body ol { margin: 0 0 1em; }
 .post-body h1, .post-body h2, .post-body h3, .post-body h4 { margin: 1.5em 0 .5em; line-height: 1.25; }
 .post-body h1 { font-size: 20px; }

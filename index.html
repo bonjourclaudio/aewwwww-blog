@@ -1,19 +1,8 @@
 ---
 layout: default
 ---
-{% if site.posts.size > 0 %}
-<nav class="toc" aria-label="All posts">
-  <h2 class="toc-title">{{ site.posts.size }} posts</h2>
-  <ol>
-    {% for post in site.posts %}
-      <li><span class="toc-date">{{ post.date | date: '%d.%m.%Y' }}</span> <a href="#{{ post.slug }}">{{ post.title }}</a></li>
-    {% endfor %}
-  </ol>
-</nav>
-{% endif %}
-
 {% for post in site.posts %}
-  {% include post-entry.html post=post body=post.content link_title=true num=forloop.rindex %}
+  {% include post-entry.html post=post link_title=true num=forloop.rindex preview=true %}
 {% else %}
   <p>No posts yet.</p>
 {% endfor %}
