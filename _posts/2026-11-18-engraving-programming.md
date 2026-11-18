@@ -49,7 +49,54 @@ We ran into some issues and limitations of the joint rotations. After some trial
 
 
 
+![medium: first iteration toolhead, with nail as a "pen"](/assets/img/Screenshot-20261118-13:39:38.png)
+
+We made use of a ceramic resistor, since the 3D heater head draws around ~1.6 amps (max current - even on dual pin mode - is 2 amps for 1 sec, and 1.5 constant). However, the resistor got so hot that after some time, the solder points melted and we had to use an external power supply to continue testing.
+
+
+
+![medium: 2nd iteration, with centered tool and external power supply](/assets/img/Screenshot-20261118-14:01:32.png)
+
+With the new toolhead installed, we could proceed with the setup.
+
 Additionally, we generated a graphical representation of the canvas and coordinates. This made it easier to adjust values like border to frame, wall height, etc.
 
 ![medium: interface wax canvas](/assets/img/Screenshot-20261118-11:48:21.png)
+
+
+
+---
+
+## First engraving testing
+
+After confirming, that each corner position is set correctly, we did a first dry run (no heat, not touching the wax yet) which completed successfully.
+
+
+
+Now it was time to do a first real test (using a 30mm test drawing - simple dot arrangement).
+
+![medium: result of first engraving test](/assets/img/Screenshot-20261118-14:05:12.png)
+
+![medium: heat of head deforming PLA](/assets/img/Screenshot-20261118-14:05:49.png)
+
+After some initial errors (tool went do deep into the canvas, resulting in a bent tip), we managed to complete the first dot-test.
+
+However, in the second iteration the toolhead started to heat up the screws to the point where the PLA started to melt.
+
+![medium: molten PLA tool adaptor](/assets/img/Screenshot-20261118-14:08:41.png)
+
+
+
+This concludes our first physical engraving attempts. While there were some mistakes and accidents involved, we managed to verify the following:
+
+- Canvas setup / coordinates mapped correctly
+- The script is able to transform image to an appropriate resolution / dot format
+- Homing, default positions, movements (correct joint placements and sequences) working
+- Ceramic resistor (even though it got too hot; Johannes ordered a new one) works in order to bring down the current expected for the heater head; External power supply would work as a fallback
+
+
+
+Next Steps:
+
+- 
 
