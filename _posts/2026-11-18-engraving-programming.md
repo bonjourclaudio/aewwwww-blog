@@ -1,5 +1,5 @@
 ---
-title: engraving programming
+title: simulation & engraving - first steps
 date: 2026-11-18
 published: true
 ---
