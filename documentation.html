@@ -1,0 +1,83 @@
+---
+layout: null
+permalink: /documentation/
+---
+{% comment %}
+  Every post on one page, oldest first, laid out for A4 printing.
+  The "Export everything as PDF" button links to /documentation/?print,
+  which opens the browser's print dialog automatically -> "Save as PDF".
+{% endcomment %}
+{% assign posts = site.posts | reverse %}
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: 'en' }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ site.title }} – Documentation</title>
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  <style>
+    @page {
+      size: A4;
+      margin: 18mm 16mm 20mm;
+      @bottom-left  { content: "{{ site.title | replace: '"', '' }} – Documentation"; font: 8pt "Helvetica Neue", Helvetica, Arial, sans-serif; color: #777; }
+      @bottom-right { content: counter(page) " / " counter(pages); font: 8pt "Helvetica Neue", Helvetica, Arial, sans-serif; color: #777; }
+    }
+    @page :first {
+      @bottom-left  { content: none; }
+      @bottom-right { content: none; }
+    }
+  </style>
+</head>
+<body class="doc">
+<div id="page">
+
+  <div class="doc-toolbar">
+    <a href="{{ '/' | relative_url }}">&larr; Back to the blog</a>
+    <button type="button" class="btn" onclick="window.print()">Save as PDF</button>
+    <span class="doc-hint">In the print dialog, choose &ldquo;Save as PDF&rdquo; as the printer. For the blue headers, turn on &ldquo;Background graphics&rdquo;.</span>
+  </div>
+
+  <section class="doc-cover">
+    <p class="doc-course">{{ site.course }}</p>
+    <h1 class="doc-title">{{ site.title }}</h1>
+    <p class="doc-desc">{{ site.description }}</p>
+    <p class="doc-facts">
+      Documentation &middot; {{ posts.size }} posts<br>
+      {% if posts.size > 0 %}{{ posts.first.date | date: '%d.%m.%Y' }} – {{ posts.last.date | date: '%d.%m.%Y' }}<br>{% endif %}
+      {{ site.url }}
+    </p>
+    <p class="doc-generated">Generated {{ site.time | date: '%d.%m.%Y' }}</p>
+  </section>
+
+  <nav class="doc-toc">
+    <h2>Contents</h2>
+    <ol>
+      {% for post in posts %}
+        <li><a href="#{{ post.slug }}">{{ post.title }}</a> <span class="toc-date">{{ post.date | date: '%d.%m.%Y' }}</span></li>
+      {% endfor %}
+    </ol>
+  </nav>
+
+  {% for post in posts %}
+    {% include post-entry.html post=post body=post.content num=forloop.index doc=true %}
+  {% endfor %}
+
+</div>
+
+<script>
+// Opened via the export button (?print): wait until every image has loaded, then print.
+(function () {
+  if (!/[?&]print\b/.test(location.search)) return;
+  var imgs = Array.prototype.slice.call(document.images);
+  var waits = imgs.map(function (img) {
+    img.loading = 'eager';
+    if (img.complete) return Promise.resolve();
+    return new Promise(function (done) { img.onload = img.onerror = done; });
+  });
+  Promise.all(waits).then(function () {
+    setTimeout(function () { window.print(); }, 300);
+  });
+})();
+</script>
+</body>
+</html>

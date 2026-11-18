@@ -1,16 +1,24 @@
 {% comment %}
-  One post, used on the front page and on the post page.
-  Usage: {% include post-entry.html post=post body=post.content link_title=true %}
+  One post, used on the front page, the post page and the PDF documentation.
+  Usage: {% include post-entry.html post=post body=post.content link_title=true num=3 doc=false %}
+    link_title  title links to the post page + "Permalink / Top" links at the end (front page)
+    num         optional running number, shown in the post's header band
+    doc         true on the documentation page: shows the post's web address at the end
 {% endcomment %}
 {% assign p = include.post %}
 {% comment %} Images from the editor are saved as "/assets/img/…"; add the baseurl if the site lives in a sub-folder. {% endcomment %}
 {% assign img_from = '="/assets/' %}
 {% assign img_to = '="' | append: site.baseurl | append: '/assets/' %}
-<article class="post">
-  <p class="post-date">{{ p.date | date: '%A, %d %B %Y' }}</p>
-  <h2 class="post-title">
-    {% if include.link_title %}<a href="{{ p.url | relative_url }}">{{ p.title }}</a>{% else %}{{ p.title }}{% endif %}
-  </h2>
+<article class="post" id="{{ p.slug }}">
+  <header class="post-head">
+    <p class="post-meta">
+      <span class="post-date">{{ p.date | date: '%A, %d %B %Y' }}</span>
+      {% if include.num %}<span class="post-num">No. {{ include.num | prepend: '00' | slice: -2, 2 }}</span>{% endif %}
+    </p>
+    <h2 class="post-title">
+      {% if include.link_title %}<a href="{{ p.url | relative_url }}">{{ p.title }}</a>{% else %}{{ p.title }}{% endif %}
+    </h2>
+  </header>
 
   {% if p.cover and p.cover != "" %}
     <img class="cover" src="{% if p.cover contains '://' %}{{ p.cover }}{% else %}{{ p.cover | relative_url }}{% endif %}" alt="">
@@ -20,7 +28,12 @@
     {% if site.baseurl != "" %}{{ include.body | replace: img_from, img_to }}{% else %}{{ include.body }}{% endif %}
   </div>
 
-  {% if p.tags.size > 0 %}
-    <p class="post-footer">Tags: {{ p.tags | join: ', ' }}</p>
-  {% endif %}
+  <footer class="post-end">
+    <span class="post-end-mark">End of &ldquo;{{ p.title }}&rdquo;</span>
+    {% if p.tags.size > 0 %}<span>Tags: {{ p.tags | join: ', ' }}</span>{% endif %}
+    {% if include.link_title %}
+      <span><a href="{{ p.url | relative_url }}">Permalink</a> &middot; <a href="#top">&uarr; Top</a></span>
+    {% endif %}
+    {% if include.doc %}<span>{{ site.url }}{{ p.url | relative_url }}</span>{% endif %}
+  </footer>
 </article>

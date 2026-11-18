@@ -36,18 +36,62 @@ img { border: 0; max-width: 100%; height: auto; }
 #page { max-width: var(--width); margin: 0 auto; padding: 32px 0; }
 
 /* ---------- header ---------- */
-#header { margin-bottom: 40px; padding-bottom: 16px; border-bottom: 1px solid var(--line); }
+#header {
+  display: flex; align-items: flex-start; justify-content: space-between; gap: 16px;
+  margin-bottom: 32px; padding-bottom: 16px; border-bottom: 1px solid var(--line);
+}
 #blog-title { margin: 0; font-size: 22px; font-weight: bold; line-height: 1.2; }
 #blog-description { margin: 4px 0 0; color: var(--muted); }
 
-/* ---------- posts ---------- */
-.post { margin: 0 0 48px; padding-bottom: 48px; border-bottom: 1px solid var(--hair); }
-.post:last-child { border-bottom: 0; padding-bottom: 0; }
-.post-date { margin: 0; font-size: 13px; color: var(--muted); }
-.post-title { margin: 2px 0 16px; font-size: 20px; font-weight: bold; line-height: 1.25; }
-.post-title a:hover { background: var(--link); }
+/* ---------- button (PDF export) ---------- */
+.btn, a.btn, a.btn:visited {
+  flex: none;
+  display: inline-block;
+  padding: 3px 9px;
+  border: 1px solid var(--link);
+  background: var(--bg);
+  color: var(--link);
+  font: 13px/1.4 var(--font);
+  text-decoration: none;
+  cursor: pointer;
+}
+.btn:hover, a.btn:hover { background: var(--link); color: var(--bg); }
+
+/* ---------- list of posts on the front page ---------- */
+.toc { margin: 0 0 56px; font-size: 14px; }
+.toc-title { margin: 0 0 6px; font-size: 13px; font-weight: normal; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; }
+.toc ol { margin: 0; padding: 0; list-style: none; }
+.toc li { padding: 3px 0; border-bottom: 1px dotted var(--hair); }
+.toc-date { display: inline-block; min-width: 6.5em; color: var(--muted); font-variant-numeric: tabular-nums; }
+
+/* ---------- posts ----------
+   Each post = blue header band + body + "End of …" line.
+   Large gap between posts, so the next band clearly starts something new. */
+.post { margin: 0 0 96px; scroll-margin-top: 16px; }
+.post:last-child { margin-bottom: 0; }
+
+.post-head {
+  margin: 0 0 20px;
+  padding: 8px 12px 10px;
+  background: var(--link);
+  color: var(--bg);
+  -webkit-print-color-adjust: exact; print-color-adjust: exact;
+}
+.post-meta { display: flex; justify-content: space-between; gap: 12px; margin: 0; font-size: 13px; opacity: .85; }
+.post-num { font-variant-numeric: tabular-nums; }
+.post-title { margin: 2px 0 0; font-size: 20px; font-weight: bold; line-height: 1.25; }
+.post-title a, .post-title a:visited { color: var(--bg); text-decoration: none; }
+.post-title a:hover { background: var(--bg); color: var(--link); }
 
 .cover { display: block; margin: 0 0 16px; }
+
+.post-end {
+  display: flex; flex-wrap: wrap; gap: 4px 16px;
+  margin: 24px 0 0; padding-top: 8px;
+  border-top: 2px solid var(--line);
+  font-size: 13px; color: var(--muted);
+}
+.post-end-mark { color: var(--link); margin-right: auto; }
 
 .post-body p, .post-body ul, .post-body ol { margin: 0 0 1em; }
 .post-body h1, .post-body h2, .post-body h3, .post-body h4 { margin: 1.5em 0 .5em; line-height: 1.25; }
@@ -61,13 +105,16 @@ img { border: 0; max-width: 100%; height: auto; }
 .post-body blockquote { margin: 1em 0; padding-left: 12px; border-left: 2px solid var(--line); }
 .post-body code { font: 14px var(--mono); }
 .post-body pre { font: 13px/1.4 var(--mono); padding: 8px 0; overflow-x: auto; }
-.post-body hr { border: 0; border-top: 1px solid var(--hair); margin: 2em 0; }
+/* Dividers inside a post: three small dots instead of a line,
+   so they don't look like the end of the post. A divider at the very end is hidden. */
+.post-body hr { border: 0; height: auto; margin: 1.5em 0; overflow: visible; text-align: center; }
+.post-body hr::after { content: "\00B7\2003\00B7\2003\00B7"; color: var(--muted); font-size: 18px; line-height: 1; }
+.post-body > hr:last-child { display: none; }
 .post-body table { border-collapse: collapse; margin: 1em 0; font-size: 14px; }
 .post-body th, .post-body td { border: 1px solid var(--hair); padding: 4px 8px; text-align: left; vertical-align: top; }
 .post-body video, .post-body iframe { display: block; width: 100%; margin: 1em 0; border: 0; }
 
-.post-footer { margin: 1em 0 0; font-size: 13px; color: var(--muted); }
-.post-nav { margin: 0; font-size: 14px; }
+.post-nav { margin: 32px 0 0; font-size: 14px; }
 
 /* ---------- images ----------
    Size presets — start the image's alt text with a keyword
@@ -107,9 +154,46 @@ img { border: 0; max-width: 100%; height: auto; }
 .lightbox .lb-caption { margin: 8px 0 0; padding-right: 4em; color: var(--muted); }
 .lightbox .lb-count { position: absolute; right: 0; bottom: 0; color: var(--muted); }
 
+/* ---------- documentation page (/documentation/) ---------- */
+.doc-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; margin: 0 0 32px; padding-bottom: 16px; border-bottom: 1px solid var(--line); font-size: 13px; }
+.doc-hint { flex-basis: 100%; color: var(--muted); }
+.doc-cover { padding: 64px 0 80px; }
+.doc-course { margin: 0 0 8px; color: var(--muted); }
+.doc-title { margin: 0; font-size: 34px; line-height: 1.1; color: var(--link); }
+.doc-desc { margin: 8px 0 48px; font-size: 18px; }
+.doc-facts { margin: 0; }
+.doc-generated { margin: 24px 0 0; font-size: 13px; color: var(--muted); }
+.doc-toc { margin: 0 0 80px; }
+.doc-toc h2 { margin: 0 0 12px; padding-bottom: 6px; font-size: 18px; border-bottom: 2px solid var(--line); }
+.doc-toc ol { margin: 0; padding-left: 1.8em; }
+.doc-toc li { padding: 4px 0; border-bottom: 1px dotted var(--hair); }
+.doc-toc .toc-date { float: right; min-width: 0; }
+
+/* ---------- print / PDF ---------- */
+@media print {
+  body { padding: 0; font-size: 10.5pt; }
+  #page { max-width: none; padding: 0; }
+  #export-pdf, .doc-toolbar, .lightbox, .post-nav,
+  .post-end a, #footer a[href*="pagescms"] { display: none !important; }
+  a, a:visited { color: var(--text); text-decoration: none; }
+
+  .doc-cover { min-height: 230mm; padding-top: 70mm; break-after: page; }
+  .doc-toc { break-after: page; margin: 0; }
+  .doc-toc a { color: var(--text); }
+
+  .post { margin: 0; }
+  .post + .post, .toc + .post { break-before: page; }
+  .post-head { break-after: avoid; }
+  .post-body h1, .post-body h2, .post-body h3, .post-body h4 { break-after: avoid; }
+  .post-body img, .cover, .post-body table, .post-body pre, .post-end { break-inside: avoid; }
+  .post-body img, .cover { max-height: 120mm; object-fit: contain; object-position: left top; }
+  .post-body pre { white-space: pre-wrap; word-break: break-word; }
+}
+
 /* ---------- phones ---------- */
 @media (max-width: 480px) {
   #page { padding-top: 20px; }
+  #header { flex-direction: column; }
   .prose > p:has(> img[alt^="small" i])  { flex-basis: calc((100% - var(--gutter)) / 2); }
   .prose > p:has(> img[alt^="medium" i]) { flex-basis: 100%; }
 }

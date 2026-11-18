@@ -10,10 +10,14 @@
 </head>
 <body>
 <div id="page">
+  <span id="top"></span>
 
   <header id="header">
-    <h1 id="blog-title"><a href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
-    <p id="blog-description">{{ site.description }}</p>
+    <div>
+      <h1 id="blog-title"><a href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
+      <p id="blog-description">{{ site.description }}</p>
+    </div>
+    <a class="btn" id="export-pdf" href="{{ '/documentation/' | relative_url }}?print">Export everything as PDF</a>
   </header>
 
   <main id="main">
@@ -24,6 +28,7 @@
     <p>
       {{ site.course }} &middot; {{ 'now' | date: '%Y' }}<br>
       <a href="{{ site.cms_url }}" rel="nofollow">Write a post</a> &middot;
+      <a href="{{ '/documentation/' | relative_url }}">Documentation (all posts, printable)</a> &middot;
       <a href="{{ '/feed.xml' | relative_url }}">Atom feed</a>
     </p>
   </footer>
