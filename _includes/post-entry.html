@@ -22,7 +22,7 @@
   </header>
 
   {% if include.preview %}
-  <p class="post-preview">{{ p.content | strip_html | normalize_whitespace | truncate: 600, '' }}</p>
+  <p class="post-preview">{{ p.content | strip_html | normalize_whitespace | truncatewords: 38, ' …' }}</p>
   <p class="read-more"><a href="{{ p.url | relative_url }}">Read more &rarr;</a></p>
   {% else %}
 
