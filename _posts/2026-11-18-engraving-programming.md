@@ -57,6 +57,8 @@ We made use of a ceramic resistor, since the 3D heater head draws around ~1.6 am
 
 ![medium: 2nd iteration, with centered tool and external power supply](/assets/img/Screenshot-20261118-14:01:32.png)
 
+![medium](/assets/img/Screenshot-20261118-16:36:42.png)
+
 With the new toolhead installed, we could proceed with the setup.
 
 Additionally, we generated a graphical representation of the canvas and coordinates. This made it easier to adjust values like border to frame, wall height, etc.
