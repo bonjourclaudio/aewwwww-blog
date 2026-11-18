@@ -85,7 +85,11 @@ However, in the second iteration the toolhead started to heat up the screws to t
 
 ![medium: molten PLA tool adaptor](/assets/img/Screenshot-20261118-14:08:41.png)
 
+---
 
+
+
+&nbsp;
 
 This concludes our first physical engraving attempts. While there were some mistakes and accidents involved, we managed to verify the following:
 
