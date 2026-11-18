@@ -49,7 +49,7 @@ We ran into some issues and limitations of the joint rotations. After some trial
 
 
 
-Additionally, we prompted the LLM to build a graphical representation of the canvas and coordinates. This made it easier to adjust values like border to frame, wall height, etc.
+Additionally, we generated a graphical representation of the canvas and coordinates. This made it easier to adjust values like border to frame, wall height, etc.
 
 ![medium: interface wax canvas](/assets/img/Screenshot-20261118-11:48:21.png)
 
