@@ -8,4 +8,5 @@ published: true
 - capture frame
 - museum - analog removal of image frame
 - engrave still into wax; lifecyle
+- end of webcam stream - blank canvas
 
