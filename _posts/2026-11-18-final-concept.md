@@ -10,3 +10,19 @@ published: true
 - engrave still into wax; lifecyle
 - end of webcam stream - blank canvas
 
+
+
+&nbsp;
+
+![](/assets/img/concept/Intro.png)
+
+![](/assets/img/concept/Concept.png)
+
+![](/assets/img/concept/Concept-1.png)
+
+![](/assets/img/concept/Concept-2.png)
+
+![](/assets/img/concept/Concept-3.png)
+
+![](/assets/img/concept/Concept-4.png)
+
