@@ -11,5 +11,5 @@ The web implementation is part of our main github repo and can be served locally
 
 
 
-![medium: 3D simulation](/assets/img/Screenshot-20261119-09:54:11.png)
+![large: 3D simulation](/assets/img/Screenshot-20261119-09:54:11.png)
 
